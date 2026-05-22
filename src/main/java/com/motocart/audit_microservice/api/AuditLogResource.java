@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 
 public interface AuditLogResource {
+
     AuditLogDTO getAuditLog(String auditLogId);
 
     @GetMapping("/_query")

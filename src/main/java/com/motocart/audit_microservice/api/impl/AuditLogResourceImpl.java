@@ -25,7 +25,7 @@ public class AuditLogResourceImpl implements AuditLogResource {
         return auditService.getAuditLog(auditLogId);
     }
 
-    /**
+    /*
     # First page, 20 records per page
     GET /audit/_query?page=0&size=20
 
