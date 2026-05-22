@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: audit-microservice
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: rootuser
+      password: rootpass
+      authentication-database: admin
+      database: auditdb
+      auto-index-creation: true
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: audit-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.motocart.*"
