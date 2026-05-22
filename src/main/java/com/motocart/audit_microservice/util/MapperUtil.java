@@ -2,6 +2,7 @@ package com.motocart.audit_microservice.util;
 
 import com.motocart.audit_microservice.document.AuditLogDocument;
 import com.motocart.library.common.dto.AuditLogDTO;
+import com.motocart.library.common.dto.response.AuditLogPreviewDTO;
 import com.motocart.library.common.event.AuditEvent;
 
 public final class MapperUtil {
@@ -35,6 +36,18 @@ public final class MapperUtil {
                 .userRoles(auditLogDocument.getUserRoles())
                 .changeNote(auditLogDocument.getChangeNote())
                 .correlationId(auditLogDocument.getCorrelationId())
+                .build();
+    }
+
+    public static AuditLogPreviewDTO toAuditLogPreviewDTO(AuditLogDocument auditLogDocument) {
+        return AuditLogPreviewDTO.builder()
+                .auditLogId(auditLogDocument.getAuditLogId())
+                .entityId(auditLogDocument.getEntityId())
+                .timeStamp(auditLogDocument.getTimeStamp())
+                .action(auditLogDocument.getAction())
+                .entityType(auditLogDocument.getEntityType().toString())
+                .userId(auditLogDocument.getUserId())
+                .sourceService(auditLogDocument.getSourceService())
                 .build();
     }
 }
