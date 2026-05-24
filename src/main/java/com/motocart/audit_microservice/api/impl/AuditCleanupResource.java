@@ -57,12 +57,4 @@ public class AuditCleanupResource {
                 .executedAt(Instant.now())
                 .build();
     }
-
-    /**     * Get current cleanup configuration     *
-     * @return Current default retention days     */
-    @PostMapping("/cleanup-config")
-    @ResponseStatus(HttpStatus.OK)
-    public int getCleanupConfig() {
-        return auditCleanupService.getDefaultRetentionDays();
-    }
 }
